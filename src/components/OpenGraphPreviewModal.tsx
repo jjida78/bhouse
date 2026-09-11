@@ -17,7 +17,7 @@ export const OpenGraphPreviewModal: React.FC<OpenGraphPreviewModalProps> = ({
   const ogTitle = 'B.house';
   const ogDesc =
     'B.house 인테리어 디자인 스튜디오 프로젝트 콘텐츠 정리 및 Google Sheets 누적 저장 관리 도구';
-  const ogImage = 'https://bhouse-git-main-jjida78.vercel.app/og-image.jpg';
+  const ogImage = 'https://cdn.jsdelivr.net/gh/jjida78/bhouse@main/public/og-image.jpg';
 
   const metaHtmlSnippet = `<!-- Open Graph (KakaoTalk, Naver, Facebook, Slack) -->
 <meta property="og:type" content="website" />
