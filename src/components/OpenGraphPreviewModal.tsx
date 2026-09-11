@@ -17,13 +17,16 @@ export const OpenGraphPreviewModal: React.FC<OpenGraphPreviewModalProps> = ({
   const ogTitle = 'B.house';
   const ogDesc =
     'B.house 인테리어 디자인 스튜디오 프로젝트 콘텐츠 정리 및 Google Sheets 누적 저장 관리 도구';
-  const ogImage = '/og-image.jpg';
+  const ogImage = 'https://bhouse-git-main-jjida78.vercel.app/og-image.jpg';
 
   const metaHtmlSnippet = `<!-- Open Graph (KakaoTalk, Naver, Facebook, Slack) -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="${ogTitle}" />
 <meta property="og:description" content="${ogDesc}" />
+<meta property="og:url" content="https://bhouse-git-main-jjida78.vercel.app" />
 <meta property="og:image" content="${ogImage}" />
+<meta property="og:image:secure_url" content="${ogImage}" />
+<meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:site_name" content="B.house" />
@@ -114,6 +117,22 @@ export const OpenGraphPreviewModal: React.FC<OpenGraphPreviewModalProps> = ({
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Vercel Protected Deployment Troubleshooting Guide */}
+        <div className="bg-[#FAF4EB] border border-[#E0D2C0] rounded-xs p-3.5 space-y-2 text-xs">
+          <div className="flex items-center gap-1.5 font-semibold text-[#613D18]">
+            <span>⚠️ 'Protected Deployment – Vercel'로 표시되는 경우 해결 가이드</span>
+          </div>
+          <p className="text-[#6D533B] leading-relaxed">
+            보내주신 화면처럼 <strong>Protected Deployment</strong>가 뜨는 이유는 Vercel의 <strong>배포 보호(Authentication)</strong> 기능이 켜져 있어 카카오톡 로봇이 페이지 메타 정보를 읽지 못하고 Vercel 로그인 화면을 읽었기 때문입니다.
+          </p>
+          <ol className="list-decimal list-inside space-y-1.5 text-[#6D533B] pl-1 font-medium">
+            <li><strong>Vercel 대시보드</strong> 접속 → 해당 프로젝트 클릭</li>
+            <li>상단 <strong>Settings</strong> 탭 → 좌측 <strong>Deployment Protection</strong> 클릭</li>
+            <li><strong>Vercel Authentication</strong> 항목을 <strong>Disabled(해제)</strong>로 변경 후 저장</li>
+            <li>카카오톡 캐시 삭제 도구(<a href="https://developers.kakao.com/tool/clear/og" target="_blank" rel="noopener noreferrer" className="text-[#2C241E] underline font-bold">developers.kakao.com/tool/clear/og</a>)에서 URL 입력 후 초기화하거나 링크 뒤에 <code>?v=1</code>을 붙여 공유하세요!</li>
+          </ol>
         </div>
 
         {/* Meta tags summary */}
