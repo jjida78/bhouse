@@ -1,0 +1,7 @@
+{
+  "name": "B.house",
+  "description": "B.house 인테리어 디자인 스튜디오 프로젝트 콘텐츠 정리 및 Google Sheets 누적 저장 관리 도구",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
