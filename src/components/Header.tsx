@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, History, Sparkles } from 'lucide-react';
+import { Table, History, Sparkles, Share2 } from 'lucide-react';
 import { ConnectedSheet } from '../types';
 
 interface HeaderProps {
@@ -8,6 +8,7 @@ interface HeaderProps {
   onOpenConnectModal: () => void;
   onOpenHistory: () => void;
   onFillSample?: () => void;
+  onOpenOgPreview?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -16,6 +17,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenConnectModal,
   onOpenHistory,
   onFillSample,
+  onOpenOgPreview,
 }) => {
   const isConnected = !!connectedSheet;
 
@@ -85,6 +87,20 @@ export const Header: React.FC<HeaderProps> = ({
                 }`}
               />
             </button>
+
+            {/* Open Graph Preview Button */}
+            {onOpenOgPreview && (
+              <button
+                type="button"
+                id="btn-header-og-preview"
+                onClick={onOpenOgPreview}
+                title="배포용 오픈 그래프(OG) 미리보기"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs text-[#5C524A] hover:text-[#191512] hover:bg-[#F2ECE4] rounded-xs transition-colors cursor-pointer border border-[#E6E0D8]"
+              >
+                <Share2 className="w-3.5 h-3.5 text-[#7A7067]" />
+                <span className="hidden sm:inline">OG 미리보기</span>
+              </button>
+            )}
           </div>
         </div>
       </div>

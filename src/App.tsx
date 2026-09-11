@@ -13,6 +13,7 @@ import { InputGroupMaterialsCost } from './components/InputGroupMaterialsCost';
 import { InputGroupPhotos } from './components/InputGroupPhotos';
 import { ProjectRecordView } from './components/ProjectRecordView';
 import { RecentRecordsModal } from './components/RecentRecordsModal';
+import { OpenGraphPreviewModal } from './components/OpenGraphPreviewModal';
 import {
   ProjectRecord,
   ConnectedSheet,
@@ -58,6 +59,7 @@ export default function App() {
   const [isConnectModalOpen, setIsConnectModalOpen] = useState(false);
   const [connectModalTab, setConnectModalTab] = useState<'create_new' | 'existing_sheet'>('create_new');
   const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false);
+  const [isOgModalOpen, setIsOgModalOpen] = useState(false);
 
   const handleOpenConnectModal = (tab: 'create_new' | 'existing_sheet' = 'create_new') => {
     setConnectModalTab(tab);
@@ -237,6 +239,7 @@ export default function App() {
         onOpenConnectModal={() => handleOpenConnectModal(connectedSheet ? 'existing_sheet' : 'create_new')}
         onOpenHistory={() => setIsHistoryModalOpen(true)}
         onFillSample={!completedRecord ? handleFillSample : undefined}
+        onOpenOgPreview={() => setIsOgModalOpen(true)}
       />
 
       {/* Main Content Area */}
@@ -409,6 +412,12 @@ export default function App() {
         onClose={() => setIsHistoryModalOpen(false)}
         records={savedRecords}
         onSelectRecord={(rec) => setCompletedRecord(rec)}
+      />
+
+      {/* Open Graph Preview Modal */}
+      <OpenGraphPreviewModal
+        isOpen={isOgModalOpen}
+        onClose={() => setIsOgModalOpen(false)}
       />
     </div>
   );
